@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href = "style.css">
+    <title>Document</title>
+</head>
+<body background="../images/img.pn">
+    
+    <form id = "iform" >
+    <div class = "parent-dv">
+        <div class = "">
+                <ul style = "list-style-type: none;">
+                    
+                    <li>
+                        <div class = "input-dv">
+                        <label for = "yourname" class = ""> Your Name:</label><small></small>
+                        <input type = "text" id = "yourname" class = "" id = "yourname">
+                        </div>
+                    </li>
+                    <li>
+                        <div class = "input-dv">
+                        <label for = "youremail" class = ""> Your Email:</label><small></small>
+                        <input type = "text" id = "youremail" class = "" id = "youremail">
+                        </div>
+                    </li>
+                    <li>
+                        <div class = "input-dv">
+                        <label for = "acti-token" class = ""> Your Activation Token:</label><small></small>
+                        <input type = "text" class = "" name = "acti-token">
+                        </div>
+                    </li>
+                    <div class = "polcy">
+                        <label for = "yourname" class = "">You agree to the <a href ="">Privacy Policy</a></label>
+                        <small></small>
+                        <input type = "checkbox" id = "icheck" class = "icheck"><br>
+                        <h4 id = "errormsg" class = "tokn" name = "acti-token"></h4>
+                        <input type = "submit" id = "sumbtn" onclick = "validatte()" class = "btn" value = "SUBMIT"/>
+                    </div>
+                </ul>
+            
+        </div>
+    </div>
+
+    <script>
+        /*
+            const namefield = document.querySelector('#yourname');
+            const emailfield = document.querySelector('#youremail');
+            const chekbox = document.querySelector('#icheck');
+            const submitbtn = document.querySelector('#sumbtn');
+
+            const forrm = document.querySelector('#iform');
+*/
+        
+            const forrm = document.getElementById("iform");
+            const name = document.getElementById("yourname");
+            const email = document.getElementById("youremail");
+            const icheck = document.getElementById("icheck");
+           
+            forrm.addEventListener(submit, function(e){
+            e.preventDefault();
+
+            validatte();
+    });
+
+    function validatte(){
+            const usernameval = name.value.trim();
+            const useremailval = email.value.trim();
+            const usercheckval = icheck.value;
+
+            if(usernameval === "" || usernameval.length <= 3){
+                var msg = "Name is too short or name field is empty.";
+                document.getElementById("errormsg").innerText = msg;
+              //  alert("Name is too short or name field is empty.");
+                return false;
+            } 
+
+           var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            if(!filter.test(useremailval)){
+                var msg = "Email address is empty or invalid.";
+                useremailval.focus;
+                document.getElementById("errormsg").innerText = msg;
+               //alert("Email is too short or name field is empty.");
+                return false;
+            }
+        
+        }
+       
+    </script>
+    </form>
+</body>
+</html>
